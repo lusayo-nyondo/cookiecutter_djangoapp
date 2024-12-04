@@ -1,4 +1,8 @@
 __pycache__
 .mypy_cache
 venv
+
+
+output.css
+
 node_modules

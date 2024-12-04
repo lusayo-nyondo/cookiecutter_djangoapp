@@ -66,11 +66,14 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'config.urls'
 
+FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR / os.path.join('override_django_allauth', 'templates'),  
+            BASE_DIR / os.path.join('override_django_allauth', 'templates'),
+            BASE_DIR / os.path.join('override_django_forms', 'templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -140,11 +143,18 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+LOGIN_URL = '/accounts/login'
+LOGIN_REDIRECT_URL = '/dashboard'
 
 UNFOLD = {
-    "SITE_TITLE": "[@ cookiecutter.project_name @]",
-    "SITE_HEADER": "[@ cookiecutter.project_name @]",
-    "SITE_URL": "[@ cookiecutter.site_url @]",
+    "SITE_TITLE": "{@ cookiecutter.project_name @}",
+    "SITE_HEADER": "{@ cookiecutter.project_name @}",
+    "SITE_URL": "{@ cookiecutter.site_url @}",
     "COLORS": {
         "primary": {
             '50': '#effaff',
