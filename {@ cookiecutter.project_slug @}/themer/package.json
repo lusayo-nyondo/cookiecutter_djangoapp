@@ -98,7 +98,8 @@
     "yaml": "^2.6.1"
   },
   "scripts": {
-    "dev": "npx tailwindcss -i ./static/themer/css/input.css -o ./static/themer/css/output.css --watch"
+    "dev": "npx tailwindcss -i ./static/themer/css/input.css -o ./static/themer/css/output.css --watch",
+    "build": "npx tailwindcss -i ./static/themer/css/input.css -o ./static/themer/css/output.css"
   },
   "repository": {
     "type": "git",
