@@ -6,6 +6,8 @@ cryptography==44.0.0
 Django==5.1.4
 django-allauth==65.3.0
 django-browser-reload==1.17.0
+django-stubs==5.1.1
+django-stubs-ext==5.1.1
 django-unfold==0.42.0
 django_components==0.115
 idna==3.10
@@ -17,5 +19,7 @@ requests==2.32.3
 requests-oauthlib==2.0.0
 selectolax==0.3.26
 sqlparse==0.5.2
+types-PyYAML==6.0.12.20240917
+typing_extensions==4.12.2
 tzdata==2024.2
 urllib3==2.2.3
