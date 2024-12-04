@@ -41,8 +41,6 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     
-    #'django_components',
-    
     'django_browser_reload',
     'override_django_unfold',
     
