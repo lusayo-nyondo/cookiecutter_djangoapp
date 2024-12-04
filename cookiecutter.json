@@ -8,5 +8,8 @@
         "Email",
         "Both"
     ],
-    "site_url": "/"
+    "site_url": "/",
+    "cookiecutter": {
+        "jinja_delimiter": ["[[", "]]"]
+    }
 }
