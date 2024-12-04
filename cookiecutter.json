@@ -9,7 +9,10 @@
         "Both"
     ],
     "site_url": "/",
-    "cookiecutter": {
-        "jinja_delimiter": ["[[", "]]"]
+    "_jinja2_env_vars": {
+        "block_start_string": "[%",
+        "block_end_string": "%]",
+        "variable_start_string": "[[",
+        "variable_end_string": "]]"
     }
 }
