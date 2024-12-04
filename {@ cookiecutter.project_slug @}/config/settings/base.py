@@ -1,8 +1,7 @@
-import os
+import os, djp
 from pathlib import Path
 from django_components import ComponentsSettings
 from django.templatetags.static import static
-#from django_components import ComponentsSettings
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -48,10 +47,11 @@ INSTALLED_APPS = [
     'override_django_allauth',
     
     'django_browser_reload',
-    'override_django_unfold',
+    'hook_django_unfold',
     
     'themer',
     'public',
+    'app',
 ]
 
 MIDDLEWARE = [
@@ -219,3 +219,5 @@ COMPONENTS = ComponentsSettings(
         'components',
     ]
 )
+
+djp.settings(globals())
