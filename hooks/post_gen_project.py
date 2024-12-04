@@ -25,20 +25,26 @@ def run_management_commands(venv_path):
     python_executable = os.path.join(venv_path, 'Scripts' if os.name == 'nt' else 'bin', 'python')
     
     # Example command: python manage.py migrate
+    print("Making and running migrations...")
     subprocess.check_call([python_executable, 'manage.py', 'makemigrations'])
     subprocess.check_call([python_executable, 'manage.py', 'migrate'])
+    
+    print("Setting up themer...")
     subprocess.check_call([python_executable, 'manage.py', 'installthemerpackages'])
     subprocess.check_call([python_executable, 'manage.py', 'buildtailwindcss'])
     subprocess.check_call([python_executable, 'manage.py', 'collectcolors'])
     
 if __name__ == "__main__":
-    project_slug = '{{ cookiecutter.project_slug }}'
+    project_slug = '{@ cookiecutter.project_slug @}'
     venv_path = os.path.join(os.getcwd(), project_slug, 'venv')
 
+    print(f"Creating venv at: { venv_path }")
     create_virtualenv(venv_path)
+    
+    print(f"Installing requirements in venv")
     install_requirements(venv_path)
     
-    # Activate the virtual environment and run management commands
+    print("Run management commands")
     run_management_commands(venv_path)
 
     print("Setup completed successfully!")
