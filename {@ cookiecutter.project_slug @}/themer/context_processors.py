@@ -3,4 +3,11 @@ from .settings import (
 )
 
 def themer_settings(request):
-    return get_themer_settings()
+    all_settings = get_themer_settings()
+    
+    # Filter out settings relevant for template context processing:
+    return {
+        'themer_settings': {
+            'LOGO_STATIC_URL': all_settings['LOGO_STATIC_URL']
+        }
+    }

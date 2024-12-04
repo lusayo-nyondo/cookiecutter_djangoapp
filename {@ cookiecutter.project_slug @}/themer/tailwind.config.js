@@ -1,19 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-const palettes = {
-  'lochmara': {
-        '50': '#effaff',
-        '100': '#daf3ff',
-        '200': '#beebff',
-        '300': '#91dfff',
-        '400': '#5ecbfc',
-        '500': '#38aff9',
-        '600': '#2293ee',
-        '700': '#1976d2',
-        '800': '#1c63b1',
-        '900': '#1c548c',
-        '950': '#163355',
-    },
-}
+const colorPalettes = require('./__themer.js');
 
 module.exports = {
   content: [
@@ -28,9 +14,7 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        primary: palettes['lochmara']
-      },
+      colors: colorPalettes,
       gridTemplateColumns: {
         '18': 'repeat(18, minmax(0, 1fr))',
         '17': 'repeat(17, minmax(0, 1fr))',

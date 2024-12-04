@@ -177,11 +177,9 @@ AUTHENTICATION_BACKENDS = [
 LOGIN_URL = '/accounts/login'
 LOGIN_REDIRECT_URL = '/dashboard'
 
-UNFOLD = {
-    "SITE_TITLE": "{@ cookiecutter.project_name @}",
-    "SITE_HEADER": "{@ cookiecutter.project_name @}",
-    "SITE_URL": "{@ cookiecutter.site_url @}",
-    "COLORS": {
+THEMER = {
+    'LOGO_STATIC_URL': 'themer_assets_logo.png',
+    'COLOR_PALETTES': {
         "primary": {
             '50': '#effaff',
             '100': '#daf3ff',
@@ -194,8 +192,25 @@ UNFOLD = {
             '800': '#1c63b1',
             '900': '#1c548c',
             '950': '#163355',
+        }, 
+    }
+}
+
+UNFOLD = {
+    "SITE_TITLE": "{@ cookiecutter.project_name @}",
+    "SITE_HEADER": "{@ cookiecutter.project_name @}",
+    "SITE_URL": "{@ cookiecutter.site_url @}",
+    "SITE_LOGO": lambda request: static(THEMER['LOGO_STATIC_URL']),
+    "SITE_ICON": lambda request: static(THEMER['LOGO_STATIC_URL']),
+    "SITE_FAVICONS": [
+        {
+            "rel": "icon",
+            "sizes": "32x32",
+            "type": "image/png",
+            "href": lambda request: static(THEMER['LOGO_STATIC_URL']),
         },
-    },
+    ],
+    "COLORS": THEMER['COLOR_PALETTES'],
 }
 
 COMPONENTS = ComponentsSettings(
