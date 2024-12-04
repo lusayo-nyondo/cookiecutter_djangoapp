@@ -1,6 +1,6 @@
 {
     "project_name": "Django Webapp",
     "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_')|replace('.', '_')|trim() }}",
-    "description": "My Django Application",
+    "project_description": "My Django Application",
     "ui_framework": [ "Tailwind CSS", "Bootstrap 5", "MUI" ]
 }
