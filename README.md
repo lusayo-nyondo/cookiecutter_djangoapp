@@ -17,8 +17,8 @@ A django application template for rapidly kicking off projects. Here's the plann
 - [☑️]- Unfold Admin Integration.
 - [ ] - DJP Configuration for Rapidly Adding Extension Apps.
 - [ ] - Wagtail Blog Integration.
-- [ ] - Django Filters Setup (Almost always great to have).
-- [ ] - Add Post Gen Steps to
-    - [ ] - Install NPM Dependencies
-    - [ ] - Run Initial Database Migrations
-    - [ ] - Collect color palette.
+- [ ] - Django Filter Setup (Almost always great to have).
+- [☑️] - Add Post Gen Steps to
+    - [☑️] - Install NPM Dependencies
+    - [☑️] - Run Initial Database Migrations
+    - [☑️] - Collect color palette.

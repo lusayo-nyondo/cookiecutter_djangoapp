@@ -1,5 +1,7 @@
-import json, os
+import json, os, subprocess
 from django.core.management.base import BaseCommand
+from django.core.management import call_command
+
 from django.conf import settings
 
 from themer.settings import (
@@ -23,7 +25,8 @@ class Command(BaseCommand):
         themer_path = get_themer_path()
         themer_settings = get_themer_settings()
         color_palettes = themer_settings['COLOR_PALETTES']
-
+        base_dir = getattr(settings, 'BASE_DIR')
+        
         js_file_path = os.path.join(
             themer_path,
             '__themer.js',
@@ -36,3 +39,6 @@ class Command(BaseCommand):
             js_file.write(';\n')
         
         self.stdout.write(self.style.SUCCESS('Successfully exported color palettes to {}'.format(js_file_path)))
+
+        self.stdout.write(self.style.NOTICE("Now running build static"))
+        call_command('buildtailwindcss')
