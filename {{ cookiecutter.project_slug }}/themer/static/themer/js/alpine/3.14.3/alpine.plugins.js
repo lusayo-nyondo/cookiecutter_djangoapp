@@ -1,4 +1,4 @@
-﻿function selectConfigs() {
+function selectConfigs() {
     return {
         filter: '',
         show: false,

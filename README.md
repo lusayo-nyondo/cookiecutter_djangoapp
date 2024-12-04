@@ -1,4 +1,4 @@
-﻿# Cookie Cutter Django App Template
+# Cookie Cutter Django App Template
 
 A django application template for rapidly kicking off projects. Here's the planned features:
 

@@ -1,4 +1,4 @@
-﻿from pathlib import Path
+from pathlib import Path
 from django.templatetags.static import static
 #from django_components import ComponentsSettings
 
