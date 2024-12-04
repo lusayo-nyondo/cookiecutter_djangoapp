@@ -34,8 +34,7 @@ def run_management_commands(venv_path):
     subprocess.check_call([python_executable, 'manage.py', 'collectcolors'])
     
 if __name__ == "__main__":
-    project_slug = '{@ cookiecutter.project_slug @}'
-    venv_path = os.path.join(os.getcwd(), project_slug, 'venv')
+    venv_path = os.path.join(os.getcwd(), 'venv')
 
     print(f"Creating venv at: { venv_path }")
     create_virtualenv(venv_path)
