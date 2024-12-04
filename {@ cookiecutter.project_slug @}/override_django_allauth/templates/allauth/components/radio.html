@@ -1,0 +1,13 @@
+{% load allauth %}
+<label for="{{ attrs.id }}" class="block flex w-full p-2 text-start gap-2">
+    <input {% if attrs.required %}required{% endif %}
+        name="{{ attrs.name }}"
+        class="accent-primary-700"
+        id="{{ attrs.id }}"
+        {% if attrs.value is not None %}value="{{ attrs.value }}"{% endif %}
+        {% if attrs.disabled %}disabled{% endif %}
+        type="{{ attrs.type }}">
+    <span>
+        {% slot label %}{% endslot %}
+    </span>
+</label>

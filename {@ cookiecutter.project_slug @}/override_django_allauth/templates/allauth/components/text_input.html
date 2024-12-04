@@ -1,0 +1,43 @@
+{% load allauth %}
+{% load static %}
+<label class="block relative text-start" for="{{ attrs.id }}">
+    <span
+        class="block mb-1 font-medium text-gray-700 text-start w-full flex justify-between">
+        <span
+            class="text-xs block"
+            {% if attrs.unlabeled %}:class='hidden'{% endif %}>
+            {% slot label %}
+            {% endslot %}
+        </span>
+        {% comment %}
+        {% if attrs.help_text %}
+            <button
+                type="button"
+                class="text-primary-700 hover:text-primary-800">
+                <image
+                    class="object-contain w-4 h-4"
+                    src="{% static 'icons/help.svg' %}" alt="{{ attrs.name }} help">    
+            </button>
+            <div class="absolute bg-primary-400 text-white rounded px-2 py-1 text-xs">
+                {% slot help_text %}
+                {% endslot %}
+            </div>
+        {% endif %}
+        {% endcomment %}
+    </span>
+    <span class="block relative">
+        <input
+            {% if attrs.required %}required{% endif %}
+            name="{{ attrs.name }}"
+            {% if attrs.placeholder %}placeholder="{{ attrs.placeholder }}" {% elif attrs.unlabeled %}placeholder="{% slot label %}{% endslot %}"{% endif %}
+            class="{% if attrs.errors %}is-invalid {% endif %}border border-1 form-input block w-full px-4 py-3 mb-4 border border-2 border-transparent border-gray-200 rounded focus:ring focus:ring-primary-500 focus:outline-none"
+            id="{{ attrs.id }}"
+            {% if attrs.readonly %}readonly{% endif %}
+            {% if attrs.disabled %}disabled{% endif %}
+            {% if attrs.tabindex %}tabindex="{{ attrs.tabindex }}"{% endif %}
+            {% if attrs.style %}style="{{ attrs.style }}"{% endif %}
+            {% if attrs.autocomplete %}autocomplete="{{ attrs.autocomplete }}"{% endif %}
+            {% if attrs.value is not None %}value="{{ attrs.value }}"{% endif %}
+            type="{{ attrs.type }}">
+    </span>
+</label>

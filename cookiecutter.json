@@ -10,10 +10,10 @@
     ],
     "site_url": "/",
     "_jinja2_env_vars": {
-        "block_start_string": "[%",
-        "block_end_string": "%]",
-        "variable_start_string": "[@",
-        "variable_end_string": "@]"
+        "block_start_string": "{(",
+        "block_end_string": ")}",
+        "variable_start_string": "{@",
+        "variable_end_string": "@}"
     },
     "_copy_without_render": [
         "*.min.js"

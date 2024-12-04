@@ -1,0 +1,20 @@
+{% load allauth %}
+{% comment %} djlint:off {% endcomment %}
+<div class="w-full flex flex-row justify-start">
+    <{% if attrs.href %}a href="{{ attrs.href }}"{% else %}button{% endif %}
+    {% if attrs.form %}form="{{ attrs.form }}"{% endif %}
+    {% if attrs.id %}id="{{ attrs.id }}"{% endif %}
+    {% if attrs.name %}name="{{ attrs.name }}"{% endif %}
+    {% if attrs.value %}value="{{ attrs.value }}"{% endif %}
+    {% if attrs.type %}type="{{ attrs.type }}"{% endif %}
+    {% if attrs.id %}id="{{ attrs.id }}"{% endif %}
+    class="rounded px-5 py-2.5 me-2 mb-2
+        text-start
+        font-medium text-sm text-white bg-primary-700
+        hover:bg-primary-800
+        focus:ring-4 focus:ring-primary-300
+        dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
+    {% slot %}
+    {% endslot %}
+    </{% if attrs.href %}a{% else %}button{% endif %}>
+</div>

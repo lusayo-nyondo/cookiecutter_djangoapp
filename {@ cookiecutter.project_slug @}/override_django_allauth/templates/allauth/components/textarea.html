@@ -1,0 +1,17 @@
+{% load allauth %}
+<div class="">
+    <label class="w-full text-start block flex gap-2" for="{{ attrs.id }}">
+        <span>
+            {% slot label %}
+            {% endslot %}
+        </span>
+        <textarea
+            {% if attrs.required %}required{% endif %}
+            {% if attrs.rows %}rows="{{ attrs.rows }}"{% endif %}
+            class="form-control"
+            name="{{ attrs.name }}"
+            {% if attrs.readonly %}readonly{% endif %}
+            id="{{ attrs.id }}"
+            {% if attrs.disabled %}disabled{% endif %}>{% slot value %}{% endslot %}</textarea>
+    </label>
+</div>

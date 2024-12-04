@@ -1,0 +1,28 @@
+{% load allauth %}
+<div class="flex flex-col gap-2 w-full">
+    {% if attrs.type == "checkbox" %}
+        {% include 'allauth/components/checkbox.html' with attrs=attrs slots=slots %}
+    {% elif attrs.type == "radio" %}
+        {% include 'allauth/components/radio.html' with attrs=attrs slots=slots %}
+    {% elif attrs.type == "textarea" %}
+        {% include 'allauth/components/textarea.html' with attrs=attrs slots=slots %}
+    {% elif attrs.type == "hidden" %}
+        {% include 'allauth/components/hidden.html' with attrs=attrs slots=slots %}
+    {% else %}
+        {% include 'allauth/components/text_input.html' with attrs=attrs slots=slots %}
+    {% endif %}
+
+    {% comment %}
+    {% if slots.help_text %}
+    <div class="w-full text-end">
+        {% slot help_text %}
+        {% endslot %}
+    </div>
+    {% endif %}
+    {% endcomment %}
+    {% if attrs.errors %}
+        <ul class="errorlist">
+            {% for error in attrs.errors %}<li>{{ error }}</li>{% endfor %}
+        </ul>
+    {% endif %}
+</div>

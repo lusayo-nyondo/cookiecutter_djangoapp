@@ -1,0 +1,7 @@
+{% load allauth %}
+<form class="w-full text-center border-1 gap-2 flex flex-col justify-between" method="{{ attrs.method }}" action="{{ attrs.action }}">
+    {% slot body %}
+    {% endslot %}
+    {% slot actions %}
+    {% endslot %}
+</form>

@@ -1,0 +1,2 @@
+class ThemerSettingKeyError(KeyError):
+    pass
