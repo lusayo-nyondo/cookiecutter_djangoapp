@@ -14,5 +14,8 @@
         "block_end_string": "%]",
         "variable_start_string": "[@",
         "variable_end_string": "@]"
-    }
+    },
+    "_copy_without_render": [
+        "*.min.js"
+    ]
 }
