@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from django_components import ComponentsSettings
 from django.templatetags.static import static
 #from django_components import ComponentsSettings
 
@@ -42,6 +43,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     
+    'django_components',
+    
     'override_django_allauth',
     
     'django_browser_reload',
@@ -62,6 +65,7 @@ MIDDLEWARE = [
     
     'django_browser_reload.middleware.BrowserReloadMiddleware',
     'allauth.account.middleware.AccountMiddleware',
+    "django_components.middleware.ComponentDependencyMiddleware",
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -75,7 +79,7 @@ TEMPLATES = [
             BASE_DIR / os.path.join('override_django_allauth', 'templates'),
             BASE_DIR / os.path.join('override_django_forms', 'templates'),
         ],
-        'APP_DIRS': True,
+        # 'APP_DIRS': True, Removed for compatibility with Django Components
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -84,6 +88,20 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'themer.context_processors.themer_settings',
             ],
+            'loaders': [(
+                'django.template.loaders.cached.Loader', [
+                    # Default Django loader
+                    'django.template.loaders.filesystem.Loader',
+                    # Inluding this is the same as APP_DIRS=True
+                    'django.template.loaders.app_directories.Loader',
+                    # Components loader
+                    'django_components.template_loader.Loader',
+                ]
+            )],
+            'builtins': [
+                'django_components.templatetags.component_tags',
+                'themer.templatetags.themer_tags',
+            ]
         },
     },
 ]
@@ -137,6 +155,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = '/public_static/'
+STATICFILES_FINDERS = [
+    # Default finders
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    # Django components
+    "django_components.finders.ComponentsFileSystemFinder",
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -171,3 +197,10 @@ UNFOLD = {
         },
     },
 }
+
+COMPONENTS = ComponentsSettings(
+    dirs=[],
+    app_dirs=[
+        'components',
+    ]
+)

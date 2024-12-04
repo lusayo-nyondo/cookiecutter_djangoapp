@@ -26,7 +26,7 @@
                 "runserver"
             ],
             "django": true,
-            "autoStartBrowser": false,
+            "autoStartBrowser": true,
             "cwd": "${workspaceFolder}\\{@ cookiecutter.project_slug @}",
             "program": "${workspaceFolder}\\{@ cookiecutter.project_slug @}\\manage.py"
         },
