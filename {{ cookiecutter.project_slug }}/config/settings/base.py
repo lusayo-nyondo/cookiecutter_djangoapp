@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
+    'allauth',
+    'allauth.account',
+    
     'django_browser_reload',
     'override_django_unfold',
 ]
@@ -51,6 +54,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     
     'django_browser_reload.middleware.BrowserReloadMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'

@@ -1,0 +1,43 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Tailwind CSS Build Watcher",
+            "request": "launch",
+            "runtimeArgs": [
+                "run",
+                "dev"
+            ],
+            "cwd": "${workspaceFolder}\\themer",
+            "runtimeExecutable": "npm",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node"
+        },
+        {
+            "name": "Python Debugger: Django",
+            "type": "debugpy",
+            "request": "launch",
+            "args": [
+                "runserver"
+            ],
+            "django": true,
+            "autoStartBrowser": false,
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}\\manage.py"
+        },
+    ],
+    "compounds": [
+        {
+            "name": "Django App Dev Server",
+            "configurations": [
+                "Tailwind CSS Build Watcher",
+                "Python Debugger: Django"
+            ]
+        }
+    ]
+}

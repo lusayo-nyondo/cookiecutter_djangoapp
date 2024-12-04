@@ -11,6 +11,7 @@
                 "run",
                 "dev"
             ],
+            "cwd": "${workspaceFolder}\\{{ cookiecutter.project_slug }}\\themer",
             "runtimeExecutable": "npm",
             "skipFiles": [
                 "<node_internals>/**"
@@ -26,12 +27,13 @@
             ],
             "django": true,
             "autoStartBrowser": false,
+            "cwd": "${workspaceFolder}\\{{ cookiecutter.project_slug }}",
             "program": "${workspaceFolder}\\{{ cookiecutter.project_slug }}\\manage.py"
         },
     ],
     "compounds": [
         {
-            "name": "Compound",
+            "name": "Django App Dev Server",
             "configurations": [
                 "Tailwind CSS Build Watcher",
                 "Python Debugger: Django"
