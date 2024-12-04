@@ -17,7 +17,7 @@ const palettes = {
 
 module.exports = {
   content: [
-    '*/**/*.py',
+    '../*/**/*.py',
     '../templates/**/*.{html,svg}',
     '../*/templates/**/*.{html,svg}',
     '../*/components/**/*.{html,py,js,css}',
