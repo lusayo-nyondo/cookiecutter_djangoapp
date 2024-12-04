@@ -6,6 +6,10 @@ from themer.settings import (
     get_themer_settings
 )
 
+from themer.lib import (
+    get_themer_path
+)
+
 class Command(BaseCommand):
     help = "Exports color palette settings defined in django conf to javascript file."
     js_file_warning = """
@@ -16,20 +20,15 @@ class Command(BaseCommand):
 """.lstrip()
     
     def handle(self, *args, **options):
-        themer_path = os.path.join(
-            getattr(settings, 'BASE_DIR'),
-            'themer'
-        )
+        themer_path = get_themer_path()
         themer_settings = get_themer_settings()
         color_palettes = themer_settings['COLOR_PALETTES']
 
-        # Define the path to the output JS file
         js_file_path = os.path.join(
             themer_path,
             '__themer.js',
         )
 
-        # Write the color palettes to a JS file
         with open(js_file_path, 'w') as js_file:
             js_file.write(self.js_file_warning)
             js_file.write('module.exports = ')

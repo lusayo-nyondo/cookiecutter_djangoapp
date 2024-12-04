@@ -1,0 +1,44 @@
+import os
+import subprocess
+import sys
+
+def create_virtualenv(venv_path):
+    """Create a virtual environment."""
+    subprocess.check_call([sys.executable, '-m', 'venv', venv_path])
+
+def activate_virtualenv(venv_path):
+    """Return the activation command for the virtual environment."""
+    if os.name == 'nt':  # Windows
+        return os.path.join(venv_path, 'Scripts', 'activate.bat')
+    else:  # Unix or MacOS
+        return os.path.join(venv_path, 'bin', 'activate')
+
+def install_requirements(venv_path):
+    """Install requirements from requirements.txt."""
+    pip_executable = os.path.join(venv_path, 'Scripts' if os.name == 'nt' else 'bin', 'pip')
+    requirements_file = os.path.join(os.getcwd(), 'requirements.txt')
+    
+    subprocess.check_call([pip_executable, 'install', '-r', requirements_file])
+
+def run_management_commands(venv_path):
+    """Run Django management commands."""
+    python_executable = os.path.join(venv_path, 'Scripts' if os.name == 'nt' else 'bin', 'python')
+    
+    # Example command: python manage.py migrate
+    subprocess.check_call([python_executable, 'manage.py', 'makemigrations'])
+    subprocess.check_call([python_executable, 'manage.py', 'migrate'])
+    subprocess.check_call([python_executable, 'manage.py', 'installthemerpackages'])
+    subprocess.check_call([python_executable, 'manage.py', 'buildtailwindcss'])
+    subprocess.check_call([python_executable, 'manage.py', 'collectcolors'])
+    
+if __name__ == "__main__":
+    project_slug = '{{ cookiecutter.project_slug }}'
+    venv_path = os.path.join(os.getcwd(), project_slug, 'venv')
+
+    create_virtualenv(venv_path)
+    install_requirements(venv_path)
+    
+    # Activate the virtual environment and run management commands
+    run_management_commands(venv_path)
+
+    print("Setup completed successfully!")
