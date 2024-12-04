@@ -138,9 +138,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 UNFOLD = {
-    "SITE_TITLE": "[[ cookiecutter.project_name ]]",
-    "SITE_HEADER": "[[ cookiecutter.project_name ]]",
-    "SITE_URL": "[[ cookiecutter.site_url ]]",
+    "SITE_TITLE": "[@ cookiecutter.project_name @]",
+    "SITE_HEADER": "[@ cookiecutter.project_name @]",
+    "SITE_URL": "[@ cookiecutter.site_url @]",
     "COLORS": {
         "primary": {
             '50': '#effaff',

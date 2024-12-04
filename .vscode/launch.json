@@ -11,7 +11,7 @@
                 "run",
                 "dev"
             ],
-            "cwd": "${workspaceFolder}\\{{ cookiecutter.project_slug }}\\themer",
+            "cwd": "${workspaceFolder}\\[@ cookiecutter.project_slug @]\\themer",
             "runtimeExecutable": "npm",
             "skipFiles": [
                 "<node_internals>/**"
@@ -27,8 +27,8 @@
             ],
             "django": true,
             "autoStartBrowser": false,
-            "cwd": "${workspaceFolder}\\{{ cookiecutter.project_slug }}",
-            "program": "${workspaceFolder}\\{{ cookiecutter.project_slug }}\\manage.py"
+            "cwd": "${workspaceFolder}\\[@ cookiecutter.project_slug @]",
+            "program": "${workspaceFolder}\\[@ cookiecutter.project_slug @]\\manage.py"
         },
     ],
     "compounds": [
