@@ -1,5 +1,5 @@
 import json
-
+from datetime import datetime
 from django.template import Library
 from django.urls import (
     reverse
@@ -60,6 +60,21 @@ def get_dict_item(dictionary, key):
     return dictionary.get(key)
 
 @register.filter(name="dict_to_json")
-def dict_to_json(dictionary):
+def convert_dict_to_json(dictionary):
     data = json.dumps(dictionary)
     return data
+
+@register.filter(
+    name="convert_json_to_dict"
+)
+def convert_json_to_dict(value):
+    obj = json.loads(value)
+    return obj
+
+
+@register.filter(
+    name="format_timestamp"
+)
+def format_timestamp(value):
+    time = datetime.fromtimestamp(value)
+    return time.strftime("%d/%m/%Y - %H:%M:%S")
