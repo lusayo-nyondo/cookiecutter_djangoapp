@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+﻿/** @type {import('tailwindcss').Config} */
 const palettes = {
   'lochmara': {
         '50': '#effaff',
