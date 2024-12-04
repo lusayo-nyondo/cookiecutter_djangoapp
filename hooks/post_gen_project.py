@@ -24,7 +24,6 @@ def run_management_commands(venv_path):
     """Run Django management commands."""
     python_executable = os.path.join(venv_path, 'Scripts' if os.name == 'nt' else 'bin', 'python')
     
-    # Example command: python manage.py migrate
     print("Making and running migrations...")
     subprocess.check_call([python_executable, 'manage.py', 'makemigrations'])
     subprocess.check_call([python_executable, 'manage.py', 'migrate'])
