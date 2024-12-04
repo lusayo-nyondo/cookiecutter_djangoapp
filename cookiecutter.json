@@ -2,12 +2,11 @@
     "project_name": "Django Webapp",
     "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_')|replace('.', '_')|trim() }}",
     "project_description": "My Django Application",
+    "project_domain": "{{ project_slug }}.pythonanywhere.com",
     "login_field_type": [
-        "username",
-        "email",
-        "both"
+        "Username",
+        "Email",
+        "Both"
     ],
-    "ui_framework": [
-        "Tailwind CSS"
-    ]
+    "site_url": "/"
 }
