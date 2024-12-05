@@ -1,5 +1,9 @@
 # Cookie Cutter Django App Template
 
+## Installation instructions
+- Clone this repo.
+- ** Make sure to create the `venv` in this directory not the `{@ cookiecutter.project_slug @}` project folder. Creating it inside the project folder causes build wheels to fail for experimental repos.
+
 A django application template for rapidly kicking off projects. Here's the planned features:
 
 - [☑️] - MyPy Django Stubs.

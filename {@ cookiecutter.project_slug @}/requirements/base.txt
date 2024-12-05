@@ -12,7 +12,6 @@ django-stubs==5.1.1
 django-stubs-ext==5.1.1
 django-unfold==0.42.0
 django_components==0.115
-djp==0.3.1
 idna==3.10
 oauthlib==3.2.2
 pillow==11.0.0

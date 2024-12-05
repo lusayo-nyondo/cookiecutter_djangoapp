@@ -16,8 +16,11 @@ def activate_virtualenv(venv_path):
 def install_requirements(venv_path):
     """Install requirements from requirements.txt."""
     pip_executable = os.path.join(venv_path, 'Scripts' if os.name == 'nt' else 'bin', 'pip')
-    requirements_file = os.path.join(os.getcwd(), 'requirements.txt')
     
+    requirements_file = os.path.join(os.getcwd(), 'requirements', 'base.txt')
+    subprocess.check_call([pip_executable, 'install', '-r', requirements_file])
+    
+    requirements_file = os.path.join(os.getcwd(), 'requirements', 'base_experimental.txt')
     subprocess.check_call([pip_executable, 'install', '-r', requirements_file])
 
 def run_management_commands(venv_path):
@@ -30,7 +33,6 @@ def run_management_commands(venv_path):
     
     print("Setting up themer...")
     subprocess.check_call([python_executable, 'manage.py', 'installthemerpackages'])
-    subprocess.check_call([python_executable, 'manage.py', 'buildtailwindcss'])
     subprocess.check_call([python_executable, 'manage.py', 'collectcolors'])
     
 if __name__ == "__main__":
