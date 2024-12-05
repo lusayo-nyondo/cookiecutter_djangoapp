@@ -3,10 +3,10 @@
     "project_slug": "{@ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_')|replace('.', '_')|trim() @}",
     "project_description": "My Django Application",
     "project_domain": "{@ cookiecutter.project_slug @}.pythonanywhere.com",
-    "login_field_type": [
-        "Username",
+    "account_authentication_method": [
         "Email",
-        "Both"
+        "Username",
+        "All"
     ],
     "site_url": "/",
     "_jinja2_env_vars": {

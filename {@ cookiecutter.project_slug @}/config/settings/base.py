@@ -174,6 +174,17 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
+#{( set auth_method = cookiecutter.account_authentication_method )}
+#{( if auth_method == "email" )}
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+#{( elif auth_method == "Username" )}
+ACCOUNT_AUTHENTICATION_METHOD = "username"
+#{( elif auth_method == "All" )}
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"
+#{( else )}
+ACCOUNT_AUTHENTICATION_METHOD = "email" 
+#{( endif )}
+
 LOGIN_URL = '/accounts/login'
 LOGIN_REDIRECT_URL = '/dashboard'
 

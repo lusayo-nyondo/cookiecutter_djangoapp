@@ -15,9 +15,9 @@ A django application template for rapidly kicking off projects. Here's the plann
 - [☑️] - Django All Auth.
 - [☑️] - Style Overrides for All Auth Pages.
 - [☑️]- Unfold Admin Integration.
-- [ ] - DJP Configuration for Rapidly Adding Extension Apps.
+- [☑️] - DJP Configuration for Rapidly Adding Extension Apps.
 - [ ] - Wagtail Blog Integration.
-- [ ] - Django Filter Setup (Almost always great to have).
+- [☑️] - Django Filter Setup (Almost always great to have).
 - [☑️] - Add Post Gen Steps to
     - [☑️] - Install NPM Dependencies
     - [☑️] - Run Initial Database Migrations
