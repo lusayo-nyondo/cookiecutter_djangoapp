@@ -7,6 +7,7 @@ Django==5.1.4
 django-allauth==65.3.0
 django-browser-reload==1.17.0
 django-filter==24.3
+django-htmx==1.21.0
 django-stubs==5.1.1
 django-stubs-ext==5.1.1
 django-unfold==0.42.0
