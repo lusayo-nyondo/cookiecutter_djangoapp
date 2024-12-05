@@ -1,4 +1,4 @@
-import os, djp
+import os
 from pathlib import Path
 from django_components import ComponentsSettings
 from django.templatetags.static import static
@@ -220,4 +220,10 @@ COMPONENTS = ComponentsSettings(
     ]
 )
 
+DJP_PLUGINS_DIR = str(BASE_DIR / 'plugins')
+os.environ.setdefault(
+    "DJP_PLUGINS_DIR",
+    DJP_PLUGINS_DIR
+)
+import djp # Import DJP Strictly After loading the environment variable so it gets plugins correctly.
 djp.settings(globals())
