@@ -12,6 +12,7 @@ django-stubs==5.1.1
 django-stubs-ext==5.1.1
 django-unfold==0.42.0
 django_components==0.115
+djp_experimental @ git+https://github.com/lusayo-nyondo/djp_experimental.git@3dffe1a75d057846e901058e48648e224e447c93
 idna==3.10
 oauthlib==3.2.2
 pillow==11.0.0

@@ -20,9 +20,6 @@ def install_requirements(venv_path):
     requirements_file = os.path.join(os.getcwd(), 'requirements', 'base.txt')
     subprocess.check_call([pip_executable, 'install', '-r', requirements_file])
     
-    requirements_file = os.path.join(os.getcwd(), 'requirements', 'base_experimental.txt')
-    subprocess.check_call([pip_executable, 'install', '-r', requirements_file])
-
 def run_management_commands(venv_path):
     """Run Django management commands."""
     python_executable = os.path.join(venv_path, 'Scripts' if os.name == 'nt' else 'bin', 'python')
