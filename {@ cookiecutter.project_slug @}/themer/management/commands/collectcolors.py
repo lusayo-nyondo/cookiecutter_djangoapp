@@ -25,7 +25,6 @@ class Command(BaseCommand):
         themer_path = get_themer_path()
         themer_settings = get_themer_settings()
         color_palettes = themer_settings['COLOR_PALETTES']
-        base_dir = getattr(settings, 'BASE_DIR')
         
         js_file_path = os.path.join(
             themer_path,
@@ -40,5 +39,5 @@ class Command(BaseCommand):
         
         self.stdout.write(self.style.SUCCESS('Successfully exported color palettes to {}'.format(js_file_path)))
 
-        self.stdout.write(self.style.NOTICE("Now running build static"))
+        self.stdout.write(self.style.SUCCESS("Now building CSS."))
         call_command('buildtailwindcss')
