@@ -1,8 +1,0 @@
-[☑️] - Add a management command that sets the project's palette when using Tailwind CSS.
-        - Unfold Admin and Themer both should use the same color Palette since they both use
-        - Tailwind CSS for a more consistent look and feel. However, Unfold's color palette
-        - is set inside the project's config, whereas the themer's color palette is
-        - set inside its own tailwind config. They're seperate packages each maintaining their
-        - own tailwind stylesheets which might be redundant but they're to be maintained
-        - differently so whatever. My solution is to create a management command within themer
-        - that just manually overwrites these settings within the actual files themselves.
