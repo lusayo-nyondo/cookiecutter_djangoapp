@@ -76,8 +76,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR / os.path.join('override_django_allauth', 'templates'),
-            BASE_DIR / os.path.join('override_django_forms', 'templates'),
+            BASE_DIR / os.path.join('themer', 'overrides', 'override_django_allauth', 'templates'),
+            BASE_DIR / os.path.join('themer', 'overrides', 'override_django_forms', 'templates'),
         ],
         # 'APP_DIRS': True, Removed for compatibility with Django Components
         'OPTIONS': {
@@ -101,6 +101,7 @@ TEMPLATES = [
             'builtins': [
                 'django_components.templatetags.component_tags',
                 'themer.templatetags.themer_tags',
+                'djp.templatetags.djp',
             ]
         },
     },
