@@ -44,8 +44,6 @@ INSTALLED_APPS = [
     
     'django_components',
     
-    'override_django_allauth',
-    
     'django_browser_reload',
     'hook_django_unfold',
     
