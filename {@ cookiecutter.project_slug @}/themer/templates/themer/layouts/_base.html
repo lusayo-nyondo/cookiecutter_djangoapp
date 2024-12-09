@@ -25,6 +25,8 @@
         <link rel="icon" href="{% static 'themer/assets/logo.png' %}" type="image/png" />
         {% endblock %}
 
+        {% djp_page_head_includes %}
+
         {% block extra_head %}
         {% endblock extra_head %}
     </head>
@@ -50,6 +52,9 @@
         <script defer src="{% static 'themer/js/alpine/3.14.3/alpine.plugins.js' %}" type="text/javascript"></script>
         <script defer src="{% static 'themer/js/alpine/3.14.3/dist/cdn.min.js' %}" type="text/javascript"></script>
         <script defer src="{% static 'themer/js/htmx/2.0.3/dist/cdn.min.js' %}" type="text/javascript"></script>
+        
+        {% djp_page_body_includes %}
+
         {% block client_scripts %}
         {% endblock %}
     </body>

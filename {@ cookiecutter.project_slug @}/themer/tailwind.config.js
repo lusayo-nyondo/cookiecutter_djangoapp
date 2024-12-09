@@ -4,7 +4,6 @@ const colorPalettes = require('./__themer.js');
 module.exports = {
   content: [
     '../*/**/*.py',
-    '../templates/**/*.{html,svg}',
     '../*/templates/**/*.{html,svg}',
     '../*/components/**/*.{html,py,js,css}',
     '../static/js/*.{js,mjs,cjs}',
