@@ -76,6 +76,8 @@ TEMPLATES = [
         'DIRS': [
             BASE_DIR / os.path.join('themer', 'overrides', 'override_django_allauth', 'templates'),
             BASE_DIR / os.path.join('themer', 'overrides', 'override_django_forms', 'templates'),
+            
+            BASE_DIR / os.path.join('apps', 'hook_django_unfold', 'templates'),
         ],
         # 'APP_DIRS': True, Removed for compatibility with Django Components
         'OPTIONS': {
@@ -190,7 +192,14 @@ LOGIN_URL = '/accounts/login'
 LOGIN_REDIRECT_URL = '/dashboard'
 
 THEMER = {
+    'SITE_TITLE': '{@ cookiecutter.project_name @}',
+    'SITE_DESCRIPTION': '{@ cookiecutter.description @}',
+    'SITE_LOGO': lambda request: static('themer/assets/logo.png'),
+    'SITE_ICON': lambda request: static('themer/assets/logo.png'),
     'LOGO_STATIC_URL': 'themer_assets_logo.png',
+    'APPS_DIR': BASE_DIR / 'apps',
+    'SITE_URL': '/',
+    'APP_URL': '/app',
     'COLOR_PALETTES': {
         "primary": {
             '50': '#effaff',
@@ -209,11 +218,11 @@ THEMER = {
 }
 
 UNFOLD = {
-    "SITE_TITLE": "{@ cookiecutter.project_name @}",
-    "SITE_HEADER": "{@ cookiecutter.project_name @}",
-    "SITE_URL": "{@ cookiecutter.site_url @}",
-    "SITE_LOGO": lambda request: static(THEMER['LOGO_STATIC_URL']),
-    "SITE_ICON": lambda request: static(THEMER['LOGO_STATIC_URL']),
+    "SITE_TITLE": THEMER['SITE_TITLE'],
+    "SITE_HEADER": THEMER['SITE_TITLE'],
+    "SITE_URL": THEMER['SITE_URL'],
+    "SITE_LOGO": THEMER['SITE_LOGO'],
+    "SITE_ICON": THEMER['SITE_ICON'],
     "SITE_FAVICONS": [
         {
             "rel": "icon",
@@ -229,8 +238,13 @@ COMPONENTS = ComponentsSettings(
     dirs=[],
     app_dirs=[
         'components',
-    ]
+    ],   
+    reload_on_file_change=True
 )
+
+
+MEDIA_ROOT = BASE_DIR / 'public_media'
+MEDIA_URL = '/media/'
 
 DJP_PLUGINS_DIR = str(BASE_DIR / 'plugins')
 os.environ.setdefault(
