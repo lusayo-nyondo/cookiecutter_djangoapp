@@ -196,7 +196,6 @@ THEMER = {
     'SITE_DESCRIPTION': '{@ cookiecutter.description @}',
     'SITE_LOGO': lambda request: static('themer/assets/logo.png'),
     'SITE_ICON': lambda request: static('themer/assets/logo.png'),
-    'LOGO_STATIC_URL': 'themer_assets_logo.png',
     'APPS_DIR': BASE_DIR / 'apps',
     'SITE_URL': '/',
     'APP_URL': '/app',

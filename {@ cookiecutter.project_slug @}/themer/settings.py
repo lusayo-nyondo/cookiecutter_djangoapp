@@ -4,7 +4,7 @@ from .exceptions import (
 
 def get_default(setting_name):
     match(setting_name):
-        case 'LOGO_STATIC_URL':
+        case 'SITE_LOGO':
             return 'themer/assets/logo.png'
         case 'COLOR_PALETTES':
             return {
@@ -46,10 +46,14 @@ def get_themer_settings():
         # No themer found in settings.
         themer = None
     
-    logo_static_url = get_setting(themer, 'LOGO_STATIC_URL')
+    site_logo = get_setting(themer, 'SITE_LOGO')
     color_palettes = get_setting(themer, 'COLOR_PALETTES')
+    site_title = get_setting(themer, 'SITE_TITLE')
+    site_url = get_setting(themer, 'SITE_URL')
     
     return {
-        'LOGO_STATIC_URL': logo_static_url,
+        'SITE_LOGO': site_logo,
         'COLOR_PALETTES': color_palettes,
+        'SITE_TITLE': site_title,
+        'SITE_URL': site_url,
     }

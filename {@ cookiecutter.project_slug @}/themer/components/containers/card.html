@@ -1,0 +1,24 @@
+{% negate hide_title as show_title %}
+{% negate hide_footer as show_footer %}
+
+<div
+    class="border flex flex-col flex-grow overflow-hidden relative rounded-md shadow-sm
+    dark:border-gray-800 {% if class %} {{ class }}{% endif %}">
+    {% if show_title %}
+    <h2
+        class="bg-gray-50 border-b font-semibold w-full
+            mb-6 py-4 px-6 text-font-important-light dark:text-font-important-dark dark:border-gray-800 dark:bg-white/[.02]">
+        {% slot 'title' / %}
+    </h2>
+    {% endif %}
+
+    <div class="flex-grow relative px-6 w-full">
+        {% slot 'children' default / %}
+    </div>
+
+    {% if show_footer %}
+    <div class="border-t w-full flex items-center -mb-6 -mx-6 mt-6 pb-2 pt-2 px-6 text-sm dark:border-gray-800">
+        {% slot 'footer' / %}
+    </div>
+    {% endif %}
+</div>

@@ -8,6 +8,8 @@ def themer_settings(request):
     # Filter out settings relevant for template context processing:
     return {
         'themer_settings': {
-            'LOGO_STATIC_URL': all_settings['LOGO_STATIC_URL']
+            'SITE_TITLE': all_settings['SITE_TITLE'],
+            'SITE_URL': all_settings['SITE_URL'],
+            'SITE_LOGO': all_settings['SITE_LOGO']
         }
     }
