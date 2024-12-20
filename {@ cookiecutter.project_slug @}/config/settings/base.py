@@ -2,6 +2,9 @@ import os
 from pathlib import Path
 from django_components import ComponentsSettings
 from django.templatetags.static import static
+from apps.config import (
+    SIDEBAR
+)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -86,7 +89,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'themer.context_processors.themer_settings',
+                'themer.context_processors.themer_context',
             ],
             'loaders': [(
                 'django.template.loaders.cached.Loader', [
@@ -231,6 +234,7 @@ UNFOLD = {
         },
     ],
     "COLORS": THEMER['COLOR_PALETTES'],
+    "SIDEBAR": SIDEBAR,
 }
 
 COMPONENTS = ComponentsSettings(

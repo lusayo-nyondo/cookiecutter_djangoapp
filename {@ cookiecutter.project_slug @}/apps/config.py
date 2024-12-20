@@ -4,6 +4,10 @@ from django.utils.translation import gettext_lazy as _
 
 DASHBOARD_CALLBACK = 'apps.callbacks.branch_deliveries_callback'
 
+__NAVIGATION = [
+    
+]
+
 SIDEBAR = {
     "show_search": False,
     "show_all_applications": True,
@@ -101,17 +105,17 @@ SIDEBAR = {
                 {
                     "title": _("Users"),
                     "icon": "person",
-                    "link": '/admin/auth/user', #reverse_lazy("admin:users_user_changelist"),
+                    "link": '/admin/auth/user',
                 },
                 {
                     "title": _("Groups"),
                     "icon": "people",
-                    "link": '/admin/auth/group', #reverse_lazy("admin:users_user_changelist"),
+                    "link": '/admin/auth/group',
                 },
                 {
                     "title": _("Email Addresses"),
                     "icon": "alternate_email",
-                    "link": '/admin/account/emailaddress', #reverse_lazy("admin:users_user_changelist"),
+                    "link": '/admin/account/emailaddress',
                 },
             ]
         }
